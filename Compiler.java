@@ -10,11 +10,12 @@ import compiler.irt.*;
 import compiler.codegen.*;
 import compiler.opt.*;
 import compiler.lib.*;
+
 public class Compiler{
 	public static void main(String[] args)throws Exception{
-	String fileName = "";
-	String option = "";
-	String targetFile = "";
+	String fileName = ""; //Saves the name of the file
+	String option = ""; //Saves the option as if "-o -target -
+	String targetFile = ""; //Guarda que stage se trabaja "semantic, scan, parse ... etc"
 	
 	if(args.length > 0){
 	option = args[0].toLowerCase();
@@ -64,6 +65,9 @@ public class Compiler{
 	Ast ast;
 	Semantic semantic;
 	Irt irt;
+	Algebraic opAlgebraica;
+	ConstantFolding constFold;
+	Debug debugger;
 	int decider = flagSelector(flag);
 	switch(decider){
 	case 1: 
@@ -105,10 +109,13 @@ public class Compiler{
 		}
 		break;
 	case 3:
-		System.out.println("You selected the opt");
+		if(targetDecition.equals("Algebraic"))
+			opAlgebraica = new Algebraic(parameter);
+		else 
+			constFold = new ConstantFolding(parameter);
 		break;
 	case 4:
-		System.out.println("You're debuggin");
+		debugger = new Debug(parameter);
 		break;
 	case 5:
 		 help();

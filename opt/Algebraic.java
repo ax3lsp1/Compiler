@@ -1,4 +1,4 @@
-package algebraic;
+package compiler.opt;
 public class Algebraic{
 
 	public Algebraic(String intput){
