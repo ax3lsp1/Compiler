@@ -17,6 +17,8 @@ MODULO :'%';
 IGUAL : '=';
 OR : '||';
 AND : '&&';
+MASIGUAL : '+=';
+MENOSIGUAL : '-=';
 
 MAYORQUE :'>';
 MENORQUE :'<';
