@@ -82,28 +82,28 @@ public class Compiler{
 			break;
 		case 2:
 			escanner = new Scanner(parameter);
-			parser = new CC4Parser(parameter);
+			parser = new CC4Parser(escanner);
 			System.out.println("Stage:[Parser]");			
 			break;
 		case 3:
 			escanner = new Scanner(parameter);
-			parser = new CC4Parser(parameter);
-			ast = new Ast(parameter);
+			parser = new CC4Parser(escanner);
+			ast = new Ast(parser);
 			System.out.println("Stage:[AST]");			
 			break;
 		case 4:
 			escanner = new Scanner(parameter);
-			parser = new CC4Parser(parameter);
-			ast = new Ast(parameter);		
-			semantic = new Semantic(parameter);
+			parser = new CC4Parser(escanner);
+			ast = new Ast(parser);		
+			semantic = new Semantic(ast);
 			System.out.println("Stage:[Semantic]");			
 			break;
 		case 5:
 			escanner = new Scanner(parameter);
-			parser = new CC4Parser(parameter);
-			ast = new Ast(parameter);		
-			semantic = new Semantic(parameter);
-			irt = new Irt(parameter);
+			parser = new CC4Parser(escanner);
+			ast = new Ast(parser);		
+			semantic = new Semantic(ast);
+			irt = new Irt(semantic);
 			System.out.println("Stage:[Irt]");	
 			break;		
 		}

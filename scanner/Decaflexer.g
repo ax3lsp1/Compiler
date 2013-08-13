@@ -50,4 +50,4 @@ VOID :'void';
 COMA :',';
 PUNTOCOMA :';';
 CHAIN: '"'' .* ''"';
-CHARCTER: '\'' . '\'';
+CARACTER: '\'' . '\'';

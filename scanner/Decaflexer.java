@@ -1,4 +1,4 @@
-// Generated from Decaf.g by ANTLR 4.0
+// Generated from Decaflexer.g by ANTLR 4.0
 
 package compiler.scanner;
 
@@ -12,7 +12,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class Decaf extends Lexer {
+public class Decaflexer extends Lexer {
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
@@ -23,7 +23,7 @@ public class Decaf extends Lexer {
 		PARENTESISI=21, PARENTESISD=22, CORCHETEI=23, CORCHETED=24, PROGRAM=25, 
 		BOOLEAN=26, BREAK=27, CALLOUT=28, CLASS=29, CONTINUE=30, ELSE=31, FALSE=32, 
 		FOR=33, IF=34, INT=35, RETURN=36, TRUE=37, VOID=38, COMA=39, PUNTOCOMA=40, 
-		CHAIN=41, CHARCTER=42;
+		CHAIN=41, CARACTER=42;
 	public static String[] modeNames = {
 		"DEFAULT_MODE"
 	};
@@ -34,7 +34,7 @@ public class Decaf extends Lexer {
 		"'||'", "'&&'", "'+='", "'-='", "'>'", "'<'", "'>='", "'<='", "'{'", "'}'", 
 		"'('", "')'", "'['", "']'", "'Program'", "'boolean'", "'break'", "'callout'", 
 		"'class'", "'continue'", "'else'", "'false'", "'for'", "'if'", "'int'", 
-		"'return'", "'true'", "'void'", "','", "';'", "CHAIN", "CHARCTER"
+		"'return'", "'true'", "'void'", "','", "';'", "CHAIN", "CARACTER"
 	};
 	public static final String[] ruleNames = {
 		"ID", "OBVIAR", "NUMEROS", "MAS", "MENOS", "MULTIPLICACION", "DIVISION", 
@@ -42,17 +42,17 @@ public class Decaf extends Lexer {
 		"MENORQUE", "MAYORIGUAL", "MENORIGUAL", "LLAVEI", "LLAVED", "PARENTESISI", 
 		"PARENTESISD", "CORCHETEI", "CORCHETED", "PROGRAM", "BOOLEAN", "BREAK", 
 		"CALLOUT", "CLASS", "CONTINUE", "ELSE", "FALSE", "FOR", "IF", "INT", "RETURN", 
-		"TRUE", "VOID", "COMA", "PUNTOCOMA", "CHAIN", "CHARCTER"
+		"TRUE", "VOID", "COMA", "PUNTOCOMA", "CHAIN", "CARACTER"
 	};
 
 
-	public Decaf(CharStream input) {
+	public Decaflexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Decaf.g"; }
+	public String getGrammarFileName() { return "Decaflexer.g"; }
 
 	@Override
 	public String[] getTokenNames() { return tokenNames; }
