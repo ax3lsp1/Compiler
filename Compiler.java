@@ -2,6 +2,7 @@
 **José Eduardo Mendez Farnes
 **Axel Ivan Mata Trujillo
 **/
+<<<<<<< HEAD
 import compiler.scanner.CC4Scanner;
 import compiler.parser.CC4Parser;
 import compiler.ast.Ast;
@@ -78,6 +79,42 @@ public class Compiler{
 	
 	}//cierra todo el main
 	
+=======
+import compiler.scanner.*;
+import compiler.parser.*;
+import compiler.ast.*;
+import compiler.semantic.*;
+import compiler.irt.*;
+import compiler.codegen.*;
+import compiler.opt.*;
+import compiler.lib.*;
+
+public class Compiler{
+	public static void main(String[] args)throws Exception{
+	String fileName = ""; //Saves the name of the file
+	String option = ""; //Saves the option as if "-o -target -
+	String targetFile = ""; //Guarda que stage se trabaja "semantic, scan, parse ... etc"
+	
+	if(args.length > 0){
+	option = args[0].toLowerCase();
+		if(args.length == 1)
+		help();
+		else if(args[1].equals("-target")){
+		targetFile = args[1].toLowerCase();
+		fileName = args[2].toLowerCase();
+		processCaller(option,fileName,targetFile);}
+		else {
+		option = args[0].toLowerCase();
+		fileName = args[1].toLowerCase();
+		processCaller(option,fileName,targetFile);}
+		}
+	else{
+		System.out.println("");	
+		System.out.println("Loading Help instructions...");
+		help(); }
+	}
+	
+>>>>>>> eb69d0ad4350f32e5be9962a8ac23531d082f4c0
 	public static void help(){
 	System.out.println("");	
 	System.out.println("-o <outname>     Escribir el output a un archivo de texto llamado <outname>.");
@@ -101,8 +138,13 @@ public class Compiler{
 	System.out.println("");	
 	}
 
+<<<<<<< HEAD
 	public static void processCaller(String flag, String parameter,String targetDecition)throws IOException{
 	CC4Scanner escanner;
+=======
+	public static void processCaller(String flag, String parameter,String targetDecition){
+	Scanner escanner;
+>>>>>>> eb69d0ad4350f32e5be9962a8ac23531d082f4c0
 	CC4Parser parser;
 	Ast ast;
 	Semantic semantic;
@@ -113,6 +155,7 @@ public class Compiler{
 	int decider = flagSelector(flag);
 	switch(decider){
 	case 1: 
+<<<<<<< HEAD
 		FileOutputStream output = new FileOutputStream(parameter);
 		System.out.println("The parameter has been written to the file: " + parameter);
 		output.close();
@@ -151,15 +194,60 @@ public class Compiler{
 		break;
 	case 3:
 		if(targetDecition.equals("algebraic"))
+=======
+		System.out.println("Se escribio al nombre del archivo: " + parameter);
+		break;
+	case 2:
+		int targetDecider =targetPolicySelector(parameter);
+		switch(targetDecider){
+		case 1: 
+			escanner = new Scanner(parameter);
+			System.out.println("Stage:[Scanner]");
+			break;
+		case 2:
+			escanner = new Scanner(parameter);
+			parser = new CC4Parser(parameter);
+			System.out.println("Stage:[Parser]");			
+			break;
+		case 3:
+			escanner = new Scanner(parameter);
+			parser = new CC4Parser(parameter);
+			ast = new Ast(parameter);
+			System.out.println("Stage:[AST]");			
+			break;
+		case 4:
+			escanner = new Scanner(parameter);
+			parser = new CC4Parser(parameter);
+			ast = new Ast(parameter);		
+			semantic = new Semantic(parameter);
+			System.out.println("Stage:[Semantic]");			
+			break;
+		case 5:
+			escanner = new Scanner(parameter);
+			parser = new CC4Parser(parameter);
+			ast = new Ast(parameter);		
+			semantic = new Semantic(parameter);
+			irt = new Irt(parameter);
+			System.out.println("Stage:[Irt]");	
+			break;		
+		}
+		break;
+	case 3:
+		if(targetDecition.equals("Algebraic"))
+>>>>>>> eb69d0ad4350f32e5be9962a8ac23531d082f4c0
 			opAlgebraica = new Algebraic(parameter);
 		else 
 			constFold = new ConstantFolding(parameter);
 		break;
 	case 4:
+<<<<<<< HEAD
 		Scanner sender = new Scanner(targetDecition).useDelimiter(":");
 		while(sender.hasNext()){
 		debugger = new Debug(sender.next());
 		}
+=======
+		debugger = new Debug(parameter);
+>>>>>>> eb69d0ad4350f32e5be9962a8ac23531d082f4c0
 		break;
 	case 5:
 		 help();
@@ -170,6 +258,7 @@ public class Compiler{
 		System.out.println("use -h for a list of possible options");}
 	}
 	
+<<<<<<< HEAD
 	public static int flagSelector(String PT){
 	int ACC = 1;
 		if(PT.equals("-o"))
@@ -185,13 +274,34 @@ public class Compiler{
 		else 
 			System.out.println("Error no existe");
 	return ACC;
+=======
+	public static int flagSelector(String policiType){
+	int policySelector = 0;
+		if(policiType.equals("-o"))
+			policySelector = 1;
+		else if(policiType.equals("-target"))
+			policySelector = 2;
+		else if(policiType.equals("-opt"))
+			policySelector = 3;
+		else if(policiType.equals("-debug"))
+			policySelector = 4;
+		else if(policiType.equals("-h"))
+			policySelector = 5;
+	return policySelector;
+>>>>>>> eb69d0ad4350f32e5be9962a8ac23531d082f4c0
 	}	
 	
 	public static int targetPolicySelector(String policiType){
 	int policySelector = 0;
+<<<<<<< HEAD
 		if(policiType.equals("scanner"))
 			policySelector = 1;
 		else if(policiType.equals("parser"))
+=======
+		if(policiType.equals("scan"))
+			policySelector = 1;
+		else if(policiType.equals("parse"))
+>>>>>>> eb69d0ad4350f32e5be9962a8ac23531d082f4c0
 			policySelector = 2;
 		else if(policiType.equals("ast"))
 			policySelector = 3;
