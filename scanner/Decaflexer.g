@@ -5,7 +5,7 @@ package compiler.scanner;
 }
 
 ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-OBVIAR : '\n'|' '|'\t'|'\r';
+OBVIAR : ('\t'|' '|'\r'|'\n')+{ skip(); };
 NUMEROS : '0'..'9';
 
 MAS :'+';
