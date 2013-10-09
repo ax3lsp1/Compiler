@@ -43,12 +43,13 @@ public class CC4Parser{
 	
 	public void parseando() throws Exception{
 	
-	compiler.scanner.Decaf lex = new compiler.scanner.Decaf(new ANTLRFileStream(arch));
+	compiler.scanner.DecafLexer lex = new compiler.scanner.DecafLexer(new ANTLRFileStream(arch));
 	    CommonTokenStream tokens = new CommonTokenStream(lex);
 	    compiler.parser.Decaf parser = new compiler.parser.Decaf(tokens);	
 
 	    try {
 	        parser.program();
+			//System.out.println("Parseando");
 	    }
 	    catch (RecognitionException e) {
 	        System.out.println("Error al parsear.");
@@ -62,7 +63,7 @@ public class CC4Parser{
 			ConcurrentLinkedQueue<String> texto_salida = new ConcurrentLinkedQueue<String>();
 		
 		texto_salida = parser.getOutPut();
-		System.out.println(texto_salida.isEmpty());		
+		//System.out.println(texto_salida.isEmpty());		
 		while(!texto_salida.isEmpty()){
 
 		out = texto_salida.poll();
