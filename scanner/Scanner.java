@@ -8,7 +8,7 @@ public class Scanner{
 
 	protected boolean scanner_debug = false;
     public String archivo_entrada = null;													//	string m_archivo
-    protected Decaf lex = null;												//objeto decaflexer
+    protected DecafLexer lex = null;												//objeto decaflexer
     protected String archivo_salida = null;											//archivo de salida
 	protected String text = "";
 	//protected int linea = "";
@@ -33,7 +33,7 @@ public class Scanner{
 	public void Scanning(){
 		try{
 		CharStream cs = new ANTLRFileStream(archivo_entrada);
-			lex = new Decaf(cs);
+			lex = new DecafLexer(cs);
 	}
 	catch (IOException e) {
 	    System.out.println("Error al leer archivo de entrada: " + archivo_entrada);
