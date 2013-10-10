@@ -60,17 +60,19 @@ public class CC4Parser{
         if (archivo_salida == null || archivo_salida.equals(""))
             archivo_salida = "salida_parser.txt";
 
-			ConcurrentLinkedQueue<String> texto_salida = new ConcurrentLinkedQueue<String>();
-		
-		texto_salida = parser.getOutPut();
-		//System.out.println(texto_salida.isEmpty());		
-		while(!texto_salida.isEmpty()){
+			ConcurrentLinkedQueue<String> vuelta = new ConcurrentLinkedQueue<String>();
 
-		out = texto_salida.poll();
+			vuelta = parser.getOutPut();
+			int cantidad = vuelta.size();
+			
+			String [] array = vuelta.toArray(new String[cantidad]);
 
-        if (parser_debug)
-	        System.out.println(out);
+			 if (parser_debug){
+			for (int i=cantidad-1;i>=0;i--){
+				System.out.println(array[i]);
 			}
+		}
+
     }
 
     public void SetArchivoSalida(String archivo_salida) {
